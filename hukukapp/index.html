@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>HukukApp — Google Play'e yönlendiriliyor</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <meta http-equiv="refresh" content="1; url=https://play.google.com/store/apps/details?id=com.hukukapp.app" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(ellipse at 50% 40%, #4C2A8C 0%, #2A1656 65%, #0A0414 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      min-height: 100vh;
+    }
+    .card { max-width: 420px; width: 100%; text-align: center; }
+    .icon {
+      width: 130px; height: 130px;
+      border-radius: 30px;
+      overflow: hidden;
+      margin: 0 auto 28px;
+      border: 3px solid #FBBF24;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 60px rgba(251,191,36,0.3);
+    }
+    .icon img { width: 100%; height: 100%; display: block; }
+    h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    h1 .accent { color: #FBBF24; }
+    .subtitle { font-size: 15px; color: #D8C8FF; opacity: 0.75; margin-bottom: 36px; }
+    .spinner {
+      width: 36px; height: 36px; margin: 0 auto 24px;
+      border: 3px solid rgba(251,191,36,0.25);
+      border-top-color: #FBBF24;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .status { font-size: 16px; font-weight: 500; opacity: 0.85; margin-bottom: 32px; }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #FBBF24 0%, #B8860B 100%);
+      color: #2A1656;
+      padding: 16px 36px;
+      border-radius: 14px;
+      font-size: 16px; font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(251,191,36,0.35);
+      transition: transform .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .small { font-size: 13px; opacity: 0.5; margin-top: 28px; }
+    .small a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon"><img src="../assets/apps/hukukapp.png" alt="HukukApp" /></div>
+    <h1>Hukuk<span class="accent">App</span></h1>
+    <p class="subtitle">Cebinde hazır hukuk rehberi</p>
+    <div class="spinner"></div>
+    <p class="status">Google Play'e yönlendiriliyorsunuz…</p>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.hukukapp.app">Google Play'de aç</a>
+    <p class="small"><a href="https://bykdgstudio.github.io/">Bykdg Studio</a></p>
+  </div>
+  <script>
+    setTimeout(function() {
+      window.location.replace('https://play.google.com/store/apps/details?id=com.hukukapp.app');
+    }, 600);
+  </script>
+</body>
+</html>
