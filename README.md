@@ -6,8 +6,8 @@ Indie mobil uygulama stüdyosu **Bykdg** için tek sayfalık statik site. Google
 
 ```
 bykdg-website/
-├── index.html        Ana sayfa (hero + about + 5 uygulama + iletişim)
-├── privacy.html      Gizlilik politikası (tüm 5 uygulamayı kapsar)
+├── index.html        Ana sayfa (hero + about + uygulamalar + iletişim)
+├── privacy.html      Gizlilik politikası (tüm uygulamaları kapsar)
 ├── support.html      Destek / SSS sayfası
 ├── 404.html          Bulunamadı sayfası
 ├── favicon.svg       Site ikonu (B harfi, mor-pembe gradient)
