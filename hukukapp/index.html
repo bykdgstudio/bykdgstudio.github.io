@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>HukukApp — Google Play'e yönlendiriliyor</title>
+  <title>HukukApp — Uygulamayı indir</title>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <meta http-equiv="refresh" content="1; url=https://play.google.com/store/apps/details?id=com.hukukapp.app" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
@@ -41,9 +40,13 @@
       animation: spin 0.9s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner[hidden] { display: none; }
     .status { font-size: 16px; font-weight: 500; opacity: 0.85; margin-bottom: 32px; }
+    .buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; }
     .btn {
       display: inline-block;
+      width: 100%;
+      max-width: 300px;
       background: linear-gradient(135deg, #FBBF24 0%, #B8860B 100%);
       color: #2A1656;
       padding: 16px 36px;
@@ -55,6 +58,14 @@
     }
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: translateY(0); }
+    /* Ikincil buton — cihazin ana magazasi disindaki secenek icin */
+    .btn.secondary {
+      background: rgba(255,255,255,0.10);
+      color: #FFFFFF;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: none;
+    }
+    .btn[hidden] { display: none; }
     .small { font-size: 13px; opacity: 0.5; margin-top: 28px; }
     .small a { color: rgba(255,255,255,0.7); text-decoration: none; }
   </style>
@@ -64,15 +75,43 @@
     <div class="icon"><img src="../assets/apps/hukukapp.png" alt="HukukApp" /></div>
     <h1>Hukuk<span class="accent">App</span></h1>
     <p class="subtitle">Cebinde hazır hukuk rehberi</p>
-    <div class="spinner"></div>
-    <p class="status">Google Play'e yönlendiriliyorsunuz…</p>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.hukukapp.app">Google Play'de aç</a>
+    <div class="spinner" id="spinner" hidden></div>
+    <p class="status" id="status">Uygulamayı indirmek için mağazanızı seçin</p>
+    <div class="buttons">
+      <a class="btn" id="btn-play" href="https://play.google.com/store/apps/details?id=com.hukukapp.app">Google Play'de aç</a>
+      <a class="btn" id="btn-appstore" href="https://apps.apple.com/app/id6763385784">App Store'da aç</a>
+    </div>
     <p class="small"><a href="https://bykdgstudio.github.io/">Bykdg Studio</a></p>
   </div>
   <script>
-    setTimeout(function() {
-      window.location.replace('https://play.google.com/store/apps/details?id=com.hukukapp.app');
-    }, 600);
+    (function () {
+      var PLAY = 'https://play.google.com/store/apps/details?id=com.hukukapp.app';
+      var APPSTORE = 'https://apps.apple.com/app/id6763385784';
+
+      var ua = navigator.userAgent || navigator.vendor || '';
+      // iPadOS 13+ kendini Mac olarak tanitir; dokunmatik nokta sayisiyla ayirt edilir.
+      var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var isAndroid = /android/i.test(ua);
+
+      var spinner = document.getElementById('spinner');
+      var status = document.getElementById('status');
+      var btnPlay = document.getElementById('btn-play');
+      var btnStore = document.getElementById('btn-appstore');
+
+      // Mobil cihazlarda dogru magazaya otomatik yonlendir; digerini ikincil
+      // buton olarak birak. Masaustunde/bilinmeyen platformda yonlendirme yok,
+      // iki secenek de esit gosterilir (yanlis magazaya atmaktan iyidir).
+      if (isIOS || isAndroid) {
+        var target = isIOS ? APPSTORE : PLAY;
+        (isIOS ? btnPlay : btnStore).classList.add('secondary');
+        status.textContent = isIOS
+          ? 'App Store’a yönlendiriliyorsunuz…'
+          : 'Google Play’e yönlendiriliyorsunuz…';
+        spinner.hidden = false;
+        setTimeout(function () { window.location.replace(target); }, 600);
+      }
+    })();
   </script>
 </body>
 </html>
