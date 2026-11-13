@@ -11,7 +11,7 @@
     html, body { height: 100%; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(ellipse at 50% 40%, #4C2A8C 0%, #2A1656 65%, #0A0414 100%);
+      background: radial-gradient(ellipse at 50% 40%, #1C232B 0%, #12161B 60%, #0B0D10 100%);
       color: #FFFFFF;
       display: flex;
       align-items: center;
@@ -25,17 +25,17 @@
       border-radius: 30px;
       overflow: hidden;
       margin: 0 auto 28px;
-      border: 3px solid #FBBF24;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 60px rgba(251,191,36,0.3);
+      border: 1px solid #3A404B;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 60px rgba(200,255,61,0.22);
     }
     .icon img { width: 100%; height: 100%; display: block; }
     h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-    h1 .accent { color: #FBBF24; }
-    .subtitle { font-size: 15px; color: #D8C8FF; opacity: 0.75; margin-bottom: 36px; }
+    h1 .accent { color: #C8FF3D; }
+    .subtitle { font-size: 15px; color: #C6CDD6; opacity: 0.85; margin-bottom: 36px; }
     .spinner {
       width: 36px; height: 36px; margin: 0 auto 24px;
-      border: 3px solid rgba(251,191,36,0.25);
-      border-top-color: #FBBF24;
+      border: 3px solid rgba(200,255,61,0.25);
+      border-top-color: #C8FF3D;
       border-radius: 50%;
       animation: spin 0.9s linear infinite;
     }
@@ -47,13 +47,13 @@
       display: inline-block;
       width: 100%;
       max-width: 300px;
-      background: linear-gradient(135deg, #FBBF24 0%, #B8860B 100%);
-      color: #2A1656;
+      background: #C8FF3D;
+      color: #0B0D10;
       padding: 16px 36px;
       border-radius: 14px;
       font-size: 16px; font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 10px 24px rgba(251,191,36,0.35);
+      box-shadow: 0 10px 24px rgba(200,255,61,0.22);
       transition: transform .15s;
     }
     .btn:hover { transform: translateY(-2px); }
@@ -72,9 +72,9 @@
 </head>
 <body>
   <div class="card">
-    <div class="icon"><img src="../assets/apps/hukukapp.png" alt="HukukApp" /></div>
+    <div class="icon"><img src="../assets/apps/hukukapp.png?v=4" alt="HukukApp" /></div>
     <h1>Hukuk<span class="accent">App</span></h1>
-    <p class="subtitle">Cebinde hazır hukuk rehberi</p>
+    <p class="subtitle">Belgeni tara · süreni gör · dilekçeni hazırla</p>
     <div class="spinner" id="spinner" hidden></div>
     <p class="status" id="status">Uygulamayı indirmek için mağazanızı seçin</p>
     <div class="buttons">
